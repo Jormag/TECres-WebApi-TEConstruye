@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TECresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Nacionalidad" Type="varchar" MaxLength="30" />
+          <Property Name="UbicacionUsuario" Type="int" />
+          <Property Name="Ingresos" Type="int" />
+          <Property Name="Ocupacion" Type="int" />
+          <Property Name="Correo" Type="varchar" MaxLength="30" />
+          <Property Name="Perfil" Type="int" />
+          <Property Name="Usuario" Type="varchar" MaxLength="20" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Propiedad">
+          <Key>
+            <PropertyRef Name="IDPropiedad" />
+          </Key>
+          <Property Name="IDPropiedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UbicacionPropiedad" Type="int" Nullable="false" />
+          <Property Name="Habitaciones" Type="int" Nullable="false" />
+          <Property Name="Baños" Type="int" Nullable="false" />
+          <Property Name="AreaTerreno" Type="int" Nullable="false" />
+          <Property Name="AreaConstruccion" Type="int" Nullable="false" />
+          <Property Name="Dueño" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="TipoInmueble" Type="int" />
+          <Property Name="TipoPisoProp" Type="int" />
+          <Property Name="Parqueos" Type="int" />
+          <Property Name="Gimnasio" Type="varchar" MaxLength="4" />
+          <Property Name="Piscina" Type="varchar" MaxLength="4" />
+          <Property Name="ParqueoVisitas" Type="varchar" MaxLength="4" />
+          <Property Name="Precio" Type="int" />
+          <Property Name="Foto1" Type="varchar" MaxLength="200" />
+          <Property Name="Foto2" Type="varchar" MaxLength="200" />
+          <Property Name="Foto3" Type="varchar" MaxLength="200" />
+          <Property Name="Foto4" Type="varchar" MaxLength="200" />
+          <Property Name="Foto5" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Propiedad_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="Dueño" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TECresModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Propiedad" EntityType="Self.Propiedad" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Propiedad_Cliente" Association="Self.FK_Propiedad_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Propiedad" EntitySet="Propiedad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TECresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TECresEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="TECresModel.Cliente" />
+          <EntitySet Name="Propiedad" EntityType="TECresModel.Propiedad" />
+          <AssociationSet Name="FK_Propiedad_Cliente" Association="TECresModel.FK_Propiedad_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Propiedad" EntitySet="Propiedad" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UbicacionUsuario" Type="Int32" />
+          <Property Name="Ingresos" Type="Int32" />
+          <Property Name="Ocupacion" Type="Int32" />
+          <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="Int32" />
+          <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Propiedad" Relationship="TECresModel.FK_Propiedad_Cliente" FromRole="Cliente" ToRole="Propiedad" />
+        </EntityType>
+        <EntityType Name="Propiedad">
+          <Key>
+            <PropertyRef Name="IDPropiedad" />
+          </Key>
+          <Property Name="IDPropiedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UbicacionPropiedad" Type="Int32" Nullable="false" />
+          <Property Name="Habitaciones" Type="Int32" Nullable="false" />
+          <Property Name="Baños" Type="Int32" Nullable="false" />
+          <Property Name="AreaTerreno" Type="Int32" Nullable="false" />
+          <Property Name="AreaConstruccion" Type="Int32" Nullable="false" />
+          <Property Name="Dueño" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="TipoInmueble" Type="Int32" />
+          <Property Name="TipoPisoProp" Type="Int32" />
+          <Property Name="Parqueos" Type="Int32" />
+          <Property Name="Gimnasio" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Piscina" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ParqueoVisitas" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="Int32" />
+          <Property Name="Foto1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Foto2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Foto3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Foto4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Foto5" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="TECresModel.FK_Propiedad_Cliente" FromRole="Propiedad" ToRole="Cliente" />
+        </EntityType>
+        <Association Name="FK_Propiedad_Cliente">
+          <End Type="TECresModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="TECresModel.Propiedad" Role="Propiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="Dueño" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TECresModelStoreContainer" CdmEntityContainer="TECresEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="TECresModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+                <ScalarProperty Name="Ingresos" ColumnName="Ingresos" />
+                <ScalarProperty Name="UbicacionUsuario" ColumnName="UbicacionUsuario" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Propiedad">
+            <EntityTypeMapping TypeName="TECresModel.Propiedad">
+              <MappingFragment StoreEntitySet="Propiedad">
+                <ScalarProperty Name="Foto5" ColumnName="Foto5" />
+                <ScalarProperty Name="Foto4" ColumnName="Foto4" />
+                <ScalarProperty Name="Foto3" ColumnName="Foto3" />
+                <ScalarProperty Name="Foto2" ColumnName="Foto2" />
+                <ScalarProperty Name="Foto1" ColumnName="Foto1" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="ParqueoVisitas" ColumnName="ParqueoVisitas" />
+                <ScalarProperty Name="Piscina" ColumnName="Piscina" />
+                <ScalarProperty Name="Gimnasio" ColumnName="Gimnasio" />
+                <ScalarProperty Name="Parqueos" ColumnName="Parqueos" />
+                <ScalarProperty Name="TipoPisoProp" ColumnName="TipoPisoProp" />
+                <ScalarProperty Name="TipoInmueble" ColumnName="TipoInmueble" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Dueño" ColumnName="Dueño" />
+                <ScalarProperty Name="AreaConstruccion" ColumnName="AreaConstruccion" />
+                <ScalarProperty Name="AreaTerreno" ColumnName="AreaTerreno" />
+                <ScalarProperty Name="Baños" ColumnName="Baños" />
+                <ScalarProperty Name="Habitaciones" ColumnName="Habitaciones" />
+                <ScalarProperty Name="UbicacionPropiedad" ColumnName="UbicacionPropiedad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IDPropiedad" ColumnName="IDPropiedad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
