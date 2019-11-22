@@ -31,7 +31,7 @@
           <Property Name="Ubicacion" Type="int" Nullable="false" />
           <Property Name="Habitaciones" Type="int" Nullable="false" />
           <Property Name="Banos" Type="int" Nullable="false" />
-          <Property Name="AreaTerreno" Type="int" Nullable="false" />
+          <Property Name="AreaLote" Type="int" Nullable="false" />
           <Property Name="AreaConstruccion" Type="int" Nullable="false" />
           <Property Name="Dueno" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="300" />
@@ -107,7 +107,7 @@
           <Property Name="Ubicacion" Type="Int32" Nullable="false" />
           <Property Name="Habitaciones" Type="Int32" Nullable="false" />
           <Property Name="Banos" Type="Int32" Nullable="false" />
-          <Property Name="AreaTerreno" Type="Int32" Nullable="false" />
+          <Property Name="AreaLote" Type="Int32" Nullable="false" />
           <Property Name="AreaConstruccion" Type="Int32" Nullable="false" />
           <Property Name="Dueno" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
@@ -179,7 +179,7 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Dueno" ColumnName="Dueno" />
                 <ScalarProperty Name="AreaConstruccion" ColumnName="AreaConstruccion" />
-                <ScalarProperty Name="AreaTerreno" ColumnName="AreaTerreno" />
+                <ScalarProperty Name="AreaLote" ColumnName="AreaLote" />
                 <ScalarProperty Name="Banos" ColumnName="Banos" />
                 <ScalarProperty Name="Habitaciones" ColumnName="Habitaciones" />
                 <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
