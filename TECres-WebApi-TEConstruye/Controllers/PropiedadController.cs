@@ -44,15 +44,15 @@ namespace TECres_WebApi_TEConstruye.Controllers
             {
                 var entity = entities.Propiedad.FirstOrDefault(controller => controller.IDPropiedad == IDPropiedad);
                 entity.Nombre = Propiedad.Nombre;
-                entity.UbicacionPropiedad = Propiedad.UbicacionPropiedad;
+                entity.Ubicacion = Propiedad.Ubicacion;
                 entity.Descripcion = Propiedad.Descripcion;
                 entity.Habitaciones = Propiedad.Habitaciones;
-                entity.Baños = Propiedad.Baños;
-                entity.AreaTerreno = Propiedad.AreaTerreno;
+                entity.Banos = Propiedad.Banos;
+                entity.AreaLote = Propiedad.AreaLote;
                 entity.AreaConstruccion = Propiedad.AreaConstruccion;
-                entity.Dueño = Propiedad.Dueño;
+                entity.Dueno = Propiedad.Dueno;
                 entity.TipoInmueble = Propiedad.TipoInmueble;
-                entity.TipoPisoProp = Propiedad.TipoPisoProp;
+                entity.TipoPiso = Propiedad.TipoPiso;
                 entity.Parqueos = Propiedad.Parqueos;
                 entity.Gimnasio = Propiedad.Gimnasio;
                 entity.Piscina = Propiedad.Piscina;

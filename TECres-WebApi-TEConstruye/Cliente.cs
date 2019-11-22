@@ -23,13 +23,9 @@ namespace TECres_WebApi_TEConstruye
         }
     
         [DataMember]
-        public int Cedula { get; set; }
+        public string Cedula { get; set; }
         [DataMember]
         public string Nombre { get; set; }
-        [DataMember]
-        public string Apellido1 { get; set; }
-        [DataMember]
-        public string Apellido2 { get; set; }
         [DataMember]
         public int Telefono { get; set; }
         [DataMember]
@@ -37,7 +33,7 @@ namespace TECres_WebApi_TEConstruye
         [DataMember]
         public string Nacionalidad { get; set; }
         [DataMember]
-        public Nullable<int> UbicacionUsuario { get; set; }
+        public Nullable<int> Ubicacion { get; set; }
         [DataMember]
         public Nullable<int> Ingresos { get; set; }
         [DataMember]
@@ -48,8 +44,8 @@ namespace TECres_WebApi_TEConstruye
         public Nullable<int> Perfil { get; set; }
         [DataMember]
         public string Usuario { get; set; }
-        
-        public string Contraseña { get; set; }
+        [DataMember]
+        public string Contrasena { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Propiedad> Propiedad { get; set; }

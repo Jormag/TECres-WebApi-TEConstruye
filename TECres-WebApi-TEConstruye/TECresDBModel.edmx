@@ -9,20 +9,18 @@
           <Key>
             <PropertyRef Name="Cedula" />
           </Key>
-          <Property Name="Cedula" Type="int" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Apellido1" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Apellido2" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Telefono" Type="int" Nullable="false" />
           <Property Name="FechaNacimiento" Type="date" />
           <Property Name="Nacionalidad" Type="varchar" MaxLength="30" />
-          <Property Name="UbicacionUsuario" Type="int" />
+          <Property Name="Ubicacion" Type="int" />
           <Property Name="Ingresos" Type="int" />
           <Property Name="Ocupacion" Type="int" />
           <Property Name="Correo" Type="varchar" MaxLength="30" />
           <Property Name="Perfil" Type="int" />
           <Property Name="Usuario" Type="varchar" MaxLength="20" />
-          <Property Name="Contraseña" Type="varchar" MaxLength="20" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Propiedad">
           <Key>
@@ -30,15 +28,15 @@
           </Key>
           <Property Name="IDPropiedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="UbicacionPropiedad" Type="int" Nullable="false" />
+          <Property Name="Ubicacion" Type="int" Nullable="false" />
           <Property Name="Habitaciones" Type="int" Nullable="false" />
-          <Property Name="Baños" Type="int" Nullable="false" />
+          <Property Name="Banos" Type="int" Nullable="false" />
           <Property Name="AreaTerreno" Type="int" Nullable="false" />
           <Property Name="AreaConstruccion" Type="int" Nullable="false" />
-          <Property Name="Dueño" Type="int" Nullable="false" />
+          <Property Name="Dueno" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="300" />
           <Property Name="TipoInmueble" Type="int" />
-          <Property Name="TipoPisoProp" Type="int" />
+          <Property Name="TipoPiso" Type="int" />
           <Property Name="Parqueos" Type="int" />
           <Property Name="Gimnasio" Type="varchar" MaxLength="4" />
           <Property Name="Piscina" Type="varchar" MaxLength="4" />
@@ -58,7 +56,7 @@
               <PropertyRef Name="Cedula" />
             </Principal>
             <Dependent Role="Propiedad">
-              <PropertyRef Name="Dueño" />
+              <PropertyRef Name="Dueno" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -86,20 +84,18 @@
           <Key>
             <PropertyRef Name="Cedula" />
           </Key>
-          <Property Name="Cedula" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Telefono" Type="Int32" Nullable="false" />
           <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
           <Property Name="Nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="UbicacionUsuario" Type="Int32" />
+          <Property Name="Ubicacion" Type="Int32" />
           <Property Name="Ingresos" Type="Int32" />
           <Property Name="Ocupacion" Type="Int32" />
           <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Perfil" Type="Int32" />
           <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Propiedad" Relationship="TECresModel.FK_Propiedad_Cliente" FromRole="Cliente" ToRole="Propiedad" />
         </EntityType>
         <EntityType Name="Propiedad">
@@ -108,15 +104,15 @@
           </Key>
           <Property Name="IDPropiedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="UbicacionPropiedad" Type="Int32" Nullable="false" />
+          <Property Name="Ubicacion" Type="Int32" Nullable="false" />
           <Property Name="Habitaciones" Type="Int32" Nullable="false" />
-          <Property Name="Baños" Type="Int32" Nullable="false" />
+          <Property Name="Banos" Type="Int32" Nullable="false" />
           <Property Name="AreaTerreno" Type="Int32" Nullable="false" />
           <Property Name="AreaConstruccion" Type="Int32" Nullable="false" />
-          <Property Name="Dueño" Type="Int32" Nullable="false" />
+          <Property Name="Dueno" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="TipoInmueble" Type="Int32" />
-          <Property Name="TipoPisoProp" Type="Int32" />
+          <Property Name="TipoPiso" Type="Int32" />
           <Property Name="Parqueos" Type="Int32" />
           <Property Name="Gimnasio" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="Piscina" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
@@ -137,7 +133,7 @@
               <PropertyRef Name="Cedula" />
             </Principal>
             <Dependent Role="Propiedad">
-              <PropertyRef Name="Dueño" />
+              <PropertyRef Name="Dueno" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -150,18 +146,16 @@
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="TECresModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="Perfil" ColumnName="Perfil" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
                 <ScalarProperty Name="Ingresos" ColumnName="Ingresos" />
-                <ScalarProperty Name="UbicacionUsuario" ColumnName="UbicacionUsuario" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
                 <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
-                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
               </MappingFragment>
@@ -180,15 +174,15 @@
                 <ScalarProperty Name="Piscina" ColumnName="Piscina" />
                 <ScalarProperty Name="Gimnasio" ColumnName="Gimnasio" />
                 <ScalarProperty Name="Parqueos" ColumnName="Parqueos" />
-                <ScalarProperty Name="TipoPisoProp" ColumnName="TipoPisoProp" />
+                <ScalarProperty Name="TipoPiso" ColumnName="TipoPiso" />
                 <ScalarProperty Name="TipoInmueble" ColumnName="TipoInmueble" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Dueño" ColumnName="Dueño" />
+                <ScalarProperty Name="Dueno" ColumnName="Dueno" />
                 <ScalarProperty Name="AreaConstruccion" ColumnName="AreaConstruccion" />
                 <ScalarProperty Name="AreaTerreno" ColumnName="AreaTerreno" />
-                <ScalarProperty Name="Baños" ColumnName="Baños" />
+                <ScalarProperty Name="Banos" ColumnName="Banos" />
                 <ScalarProperty Name="Habitaciones" ColumnName="Habitaciones" />
-                <ScalarProperty Name="UbicacionPropiedad" ColumnName="UbicacionPropiedad" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IDPropiedad" ColumnName="IDPropiedad" />
               </MappingFragment>

@@ -18,7 +18,7 @@ namespace TECres_WebApi_TEConstruye.Controllers
             }
         }
         // GET api/Cliente/Cedula
-        public Cliente Get(int Cedula)
+        public Cliente Get(string Cedula)
         {
             using (TECresEntities entities = new TECresEntities())
             {
@@ -38,31 +38,29 @@ namespace TECres_WebApi_TEConstruye.Controllers
 
 
         // PUT api/Cliente/Cedula
-        public void Put(int Cedula, [FromBody]Cliente cliente)
+        public void Put(string Cedula, [FromBody]Cliente cliente)
         {
             using (TECresEntities entities = new TECresEntities())
             {
                 var entity = entities.Cliente.FirstOrDefault(controller => controller.Cedula == Cedula);
                 entity.Nombre = cliente.Nombre;
-                entity.Apellido1 = cliente.Apellido1;
-                entity.Apellido2 = cliente.Apellido2;
                 entity.Telefono = cliente.Telefono;
                 entity.FechaNacimiento = cliente.FechaNacimiento;
                 entity.Nacionalidad = cliente.Nacionalidad;
-                entity.UbicacionUsuario = cliente.UbicacionUsuario;
+                entity.Ubicacion = cliente.Ubicacion;
                 entity.Ingresos = cliente.Ingresos;
                 entity.Ocupacion = cliente.Ocupacion;
                 entity.Correo = cliente.Correo;
                 entity.Perfil = cliente.Perfil;
                 entity.Usuario = cliente.Usuario;
-                entity.Contraseña = cliente.Contraseña;
+                entity.Contrasena = cliente.Contrasena;
 
                 entities.SaveChanges();
             }
         }
 
         // DELETE api/Cliente/Cedula
-        public void Delete(int Cedula)
+        public void Delete(string Cedula)
         {
             using (TECresEntities entities = new TECresEntities())
             {

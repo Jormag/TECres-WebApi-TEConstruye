@@ -21,23 +21,23 @@ namespace TECres_WebApi_TEConstruye
         [DataMember]
         public string Nombre { get; set; }
         [DataMember]
-        public int UbicacionPropiedad { get; set; }
+        public int Ubicacion { get; set; }
         [DataMember]
         public int Habitaciones { get; set; }
         [DataMember]
-        public int Baños { get; set; }
+        public int Banos { get; set; }
         [DataMember]
-        public int AreaTerreno { get; set; }
+        public int AreaLote { get; set; }
         [DataMember]
         public int AreaConstruccion { get; set; }
         [DataMember]
-        public int Dueño { get; set; }
+        public string Dueno { get; set; }
         [DataMember]
         public string Descripcion { get; set; }
         [DataMember]
         public Nullable<int> TipoInmueble { get; set; }
         [DataMember]
-        public Nullable<int> TipoPisoProp { get; set; }
+        public Nullable<int> TipoPiso { get; set; }
         [DataMember]
         public Nullable<int> Parqueos { get; set; }
         [DataMember]

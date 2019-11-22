@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="42f2c449fc8c4a9999de6eef8f1a9fcd" Name="Diagram1">
-        <EntityTypeShape EntityType="TECresModel.Cliente" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="TECresModel.Cliente" Width="1.5" PointX="0.75" PointY="2" />
         <EntityTypeShape EntityType="TECresModel.Propiedad" Width="1.5" PointX="3" PointY="1.125" />
         <AssociationConnector Association="TECresModel.FK_Propiedad_Cliente" />
       </Diagram>
